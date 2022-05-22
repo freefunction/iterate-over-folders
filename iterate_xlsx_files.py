@@ -23,4 +23,5 @@ for path in list(input_dir.rglob("*.xls*")):
     ws["A1"] = "New ID"
     output_dir = Path.cwd() / "New ID"
     output_dir.mkdir(exist_ok=True)
-    wb.save(output_dir / path.name)
+    (output_dir / path.parent.name).mkdir(exist_ok=True)
+     wb.save(output_dir / path.parent.name / path.name)
